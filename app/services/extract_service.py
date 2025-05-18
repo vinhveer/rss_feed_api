@@ -2,7 +2,6 @@ import trafilatura
 import json
 from typing import Dict, List, Optional
 
-
 def extract_article(url: str) -> Optional[Dict]:
     """
     Trích xuất nội dung bài báo từ URL
