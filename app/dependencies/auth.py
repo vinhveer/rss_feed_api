@@ -53,6 +53,8 @@ def delete_auth_user(anonymous_user_id: str):
         "Authorization": f"Bearer {SUPABASE_KEY}"
     }
 
+    supabase.auth.api.delete_user(anonymous_user_id)
+
     response = httpx.delete(url, headers=headers)
 
     if response.status_code == 204:
