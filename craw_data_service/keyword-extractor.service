@@ -1,0 +1,21 @@
+[Unit]
+Description=Keyword Extraction Service
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/article_service
+ExecStart=/usr/bin/python3 /article_service/keyword_extractor_systemd.py
+Restart=always
+RestartSec=60s
+StandardOutput=journal
+StandardError=journal
+Environment=PYTHONUNBUFFERED=1
+
+# Giới hạn bộ nhớ, thừa sức cho script này
+MemoryLimit=256M
+
+[Install]
+WantedBy=multi-user.target
